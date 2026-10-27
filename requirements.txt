@@ -1,0 +1,8 @@
+fastapi
+uvicorn[standard]
+requests
+psutil
+websockets
+litellm
+chainlit
+python-docx

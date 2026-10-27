@@ -1,0 +1,20 @@
+# 含密钥的真实配置不要进公开仓库
+config.json
+
+# 运行时产物 / 大目录
+data/
+projects/
+dist/
+_backup/
+backend_backup_*/
+frontend_backup_*/
+
+# 日志与缓存
+*.log
+__pycache__/
+.pytest_cache/
+
+# 编辑/依赖
+.idea/
+.vscode/
+node_modules/

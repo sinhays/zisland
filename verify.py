@@ -71,6 +71,14 @@ def main():
 
     results.append(check(f"后端程序就位 ({main_py})", app_check))
 
+    # 4) 后端主程序语法可编译（证明随镜像打包的算法代码可正常解析/执行，不泄露实现）
+    def compile_check():
+        import py_compile
+
+        py_compile.compile(main_py, doraise=True)
+
+    results.append(check(f"后端主程序可编译 ({main_py})", compile_check))
+
     print("=" * 60)
     if all(results):
         print(" 环境配置合格：可正常运行智岛AI-ComfyUi智能工作台。")

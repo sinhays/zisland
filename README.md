@@ -17,12 +17,14 @@
 
 依赖清单见 `requirements.txt`：`fastapi / uvicorn / requests / psutil / websockets / litellm / chainlit / python-docx`。
 
+> **Python 解释器**：镜像使用 AutoDL 基础镜像自带的 conda 环境 `/root/miniconda3/bin/python`（已软链到 `/usr/local/bin/python`），`verify.py` 与后端均运行于此。该环境**已预装** `torch 2.8.0+cu128 / fastapi / uvicorn / requests / psutil / websockets / numpy`，镜像构建时仅补充安装 `litellm / chainlit / python-docx`，因此**不重复安装 torch**，节省镜像体积。
+
 ## 环境信息
 
-- **操作系统**：Linux（Ubuntu 基础）
-- **CUDA**：12.1
-- **PyTorch**：2.3.1
-- **Python**：基础镜像自带（3.x）
+- **操作系统**：Linux（AutoDL 基础镜像）
+- **CUDA**：12.8（cu128，随 AutoDL 基础镜像提供）
+- **PyTorch**：2.8.0+cu128（AutoDL 基础镜像已预装，镜像内不重复安装）
+- **Python**：3.12（AutoDL 基础镜像 conda 环境 `/root/miniconda3`）
 - **GPU**：需要 NVIDIA GPU（AutoDL 实例提供）
 
 ## 快速开始
